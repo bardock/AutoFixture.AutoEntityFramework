@@ -1,9 +1,9 @@
 ﻿using Castle.DynamicProxy;
 using FluentAssertions;
 using Ploeh.AutoFixture.Kernel;
-using Ploeh.AutoFixture.Xunit;
+using Ploeh.AutoFixture.Xunit2;
 using System;
-using Xunit.Extensions;
+using Xunit;
 
 namespace AutoFixture.AutoEF.Tests
 {
@@ -41,7 +41,7 @@ namespace AutoFixture.AutoEF.Tests
         [Theory, AutoData]
         public void ReturnsFalseWhenRequestIsNotInterceptorArray(SUT sut)
         {
-            var field = typeof (ObjectWithField).GetField("NotInterceptors");
+            var field = typeof(ObjectWithField).GetField("NotInterceptors");
 
             var result = sut.IsSatisfiedBy(field);
 

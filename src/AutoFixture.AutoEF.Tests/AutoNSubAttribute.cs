@@ -1,6 +1,6 @@
 ﻿using Ploeh.AutoFixture;
 using Ploeh.AutoFixture.AutoNSubstitute;
-using Ploeh.AutoFixture.Xunit;
+using Ploeh.AutoFixture.Xunit2;
 
 namespace AutoFixture.AutoEF.Tests
 {

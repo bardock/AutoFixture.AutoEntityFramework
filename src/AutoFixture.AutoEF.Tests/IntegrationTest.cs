@@ -1,9 +1,9 @@
 ﻿using AutoFixture.AutoEF.Tests.MockEntities;
 using FluentAssertions;
 using Ploeh.AutoFixture;
-using Ploeh.AutoFixture.Xunit;
+using Ploeh.AutoFixture.Xunit2;
 using System;
-using Xunit.Extensions;
+using Xunit;
 
 namespace AutoFixture.AutoEF.Tests
 {
@@ -23,32 +23,32 @@ namespace AutoFixture.AutoEF.Tests
             foo.Should().NotBeNull();
         }
 
-        [Theory, AutoEFData(typeof (MockDbContext))]
+        [Theory, AutoEFData(typeof(MockDbContext))]
         public void GeneratedPropertyIsNotNull(Foo foo)
         {
             foo.Bar.Should().NotBeNull();
         }
-        
-        [Theory, AutoEFData(typeof (MockDbContext))]
+
+        [Theory, AutoEFData(typeof(MockDbContext))]
         public void GeneratedCollectionIsNotEmpty(Bar bar)
         {
             bar.Quxes.Should().NotBeEmpty();
         }
 
-        [Theory, AutoEFData(typeof (MockDbContext))]
+        [Theory, AutoEFData(typeof(MockDbContext))]
         public void GeneratedCollectionCanBeCleared(Bar bar)
         {
             bar.Quxes.Clear();
             bar.Quxes.Should().HaveCount(0);
         }
 
-        [Theory, AutoEFData(typeof (MockDbContext))]
+        [Theory, AutoEFData(typeof(MockDbContext))]
         public void IdShouldMatchNavigationPropertyId(Foo foo)
         {
             foo.BarId.Should().Be(foo.Bar.Id);
         }
 
-        [Theory, AutoEFData(typeof (MockDbContext))]
+        [Theory, AutoEFData(typeof(MockDbContext))]
         public void ParentShouldBeSameObject(Foo foo)
         {
             foo.Bar.Foo.Should().BeSameAs(foo);
@@ -78,7 +78,7 @@ namespace AutoFixture.AutoEF.Tests
             bar1.Should().BeSameAs(bar2);
         }
 
-        [Theory, AutoEFData(typeof (MockDbContext))]
+        [Theory, AutoEFData(typeof(MockDbContext))]
         public void UnfrozenTypeYieldsDifferentObject(Bar bar, Foo foo)
         {
             foo.Bar.Should().NotBeSameAs(bar);

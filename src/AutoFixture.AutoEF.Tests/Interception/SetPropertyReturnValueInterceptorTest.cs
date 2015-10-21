@@ -3,9 +3,9 @@ using AutoFixture.AutoEF.Tests.MockEntities;
 using Castle.DynamicProxy;
 using FluentAssertions;
 using NSubstitute;
-using Ploeh.AutoFixture.Xunit;
+using Ploeh.AutoFixture.Xunit2;
 using System;
-using Xunit.Extensions;
+using Xunit;
 
 namespace AutoFixture.AutoEF.Tests.Interception
 {

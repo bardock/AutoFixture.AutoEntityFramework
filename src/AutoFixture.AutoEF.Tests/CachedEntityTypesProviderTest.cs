@@ -1,10 +1,10 @@
-﻿using AutoFixture.AutoEF.Tests.MockEntities;
+﻿using System;
+using System.Collections.Generic;
+using AutoFixture.AutoEF.Tests.MockEntities;
 using FluentAssertions;
 using NSubstitute;
-using Ploeh.AutoFixture.Xunit;
-using System;
-using System.Collections.Generic;
-using Xunit.Extensions;
+using Ploeh.AutoFixture.Xunit2;
+using Xunit;
 
 namespace AutoFixture.AutoEF.Tests
 {
@@ -19,7 +19,7 @@ namespace AutoFixture.AutoEF.Tests
         [Theory, AutoNSub]
         public void SutIsDecorator([Frozen] IEntityTypesProvider decorated, CachedEntityTypesProvider sut)
         {
-            var types = new[] { typeof (Foo), typeof (Bar), typeof (Qux) };
+            var types = new[] { typeof(Foo), typeof(Bar), typeof(Qux) };
             decorated.GetTypes().Returns(types);
 
             var result = sut.GetTypes();
@@ -41,6 +41,5 @@ namespace AutoFixture.AutoEF.Tests
             resultSecond.Should().BeEquivalentTo(typesFirst)
                 .And.BeEquivalentTo(resultFirst);
         }
-
     }
 }

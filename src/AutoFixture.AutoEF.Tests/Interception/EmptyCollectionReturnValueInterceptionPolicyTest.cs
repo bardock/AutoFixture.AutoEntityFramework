@@ -3,7 +3,7 @@ using Castle.DynamicProxy;
 using FluentAssertions;
 using System;
 using System.Collections.Generic;
-using Xunit.Extensions;
+using Xunit;
 
 namespace AutoFixture.AutoEF.Tests.Interception
 {

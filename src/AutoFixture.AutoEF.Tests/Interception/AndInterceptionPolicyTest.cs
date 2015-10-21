@@ -4,7 +4,6 @@ using FluentAssertions;
 using NSubstitute;
 using System;
 using Xunit;
-using Xunit.Extensions;
 
 namespace AutoFixture.AutoEF.Tests.Interception
 {

@@ -2,11 +2,10 @@
 using Castle.DynamicProxy;
 using FluentAssertions;
 using NSubstitute;
-using Ploeh.AutoFixture.Xunit;
+using Ploeh.AutoFixture.Xunit2;
 using System;
 using System.Collections.Generic;
 using Xunit;
-using Xunit.Extensions;
 
 namespace AutoFixture.AutoEF.Tests.Interception
 {

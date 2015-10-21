@@ -1,8 +1,8 @@
 ﻿using AutoFixture.AutoEF.Interception;
 using Castle.DynamicProxy;
 using FluentAssertions;
-using Ploeh.AutoFixture.Xunit;
-using Xunit.Extensions;
+using Ploeh.AutoFixture.Xunit2;
+using Xunit;
 
 namespace AutoFixture.AutoEF.Tests.Interception
 {

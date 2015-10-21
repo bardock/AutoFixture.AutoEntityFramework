@@ -2,9 +2,9 @@
 using FluentAssertions;
 using NSubstitute;
 using Ploeh.AutoFixture.Kernel;
-using Ploeh.AutoFixture.Xunit;
+using Ploeh.AutoFixture.Xunit2;
 using System;
-using Xunit.Extensions;
+using Xunit;
 
 namespace AutoFixture.AutoEF.Tests
 {
