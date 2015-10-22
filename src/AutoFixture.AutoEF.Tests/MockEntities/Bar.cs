@@ -12,6 +12,8 @@ namespace AutoFixture.AutoEF.Tests.MockEntities
 
         public int Id { get; set; }
 
+        public string Name { get; set; }
+
         public int FooId { get; set; }
         public virtual Foo Foo { get; set; }
 

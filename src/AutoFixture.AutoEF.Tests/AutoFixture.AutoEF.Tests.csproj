@@ -86,6 +86,7 @@
     <Compile Include="CachedEntityTypesProviderTest.cs" />
     <Compile Include="DbContextEntityTypesProviderTest.cs" />
     <Compile Include="EntityCustomizationTest.cs" />
+    <Compile Include="CustomizationComposerIntegrationTest.cs" />
     <Compile Include="IntegrationTest.cs" />
     <Compile Include="Interception\AndInterceptionPolicyTest.cs" />
     <Compile Include="Interception\CompositeInterceptorTest.cs" />
