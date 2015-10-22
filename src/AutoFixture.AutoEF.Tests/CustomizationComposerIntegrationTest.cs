@@ -8,10 +8,14 @@ namespace AutoFixture.AutoEF.Tests
 {
     public class CustomizationComposerIntegrationTest
     {
-        [Theory(Skip = "StackOverflowException"), AutoEFData(typeof(MockDbContext))]
+        [Theory, AutoEFData(typeof(MockDbContext))]
         public void CustomizeEntity(IFixture fixture, string expectedName)
         {
-            fixture.Customize<Foo>(c => c.With(x => x.Name, expectedName));
+            var autoEfSpecimenBuilder = fixture.Customizations.First(x => x is AutoEntitySpecimenBuilder);
+            fixture.Customize<Foo>(c => c
+                .FromFactory(autoEfSpecimenBuilder)
+                .OmitAutoProperties()
+                .With(x => x.Name, expectedName));
 
             var foo = fixture.Create<Foo>();
 
@@ -46,10 +50,14 @@ namespace AutoFixture.AutoEF.Tests
             });
         }
 
-        [Theory(Skip = "StackOverflowException"), AutoEFData(typeof(MockDbContext))]
+        [Theory, AutoEFData(typeof(MockDbContext))]
         public void BuildEntity(IFixture fixture, string expectedName)
         {
-            var fooBuilder = fixture.Build<Foo>().With(x => x.Name, expectedName);
+            var autoEfSpecimenBuilder = fixture.Customizations.First(x => x is AutoEntitySpecimenBuilder);
+            var fooBuilder = fixture.Build<Foo>()
+                .FromFactory(autoEfSpecimenBuilder)
+                .OmitAutoProperties()
+                .With(x => x.Name, expectedName);
 
             var foo = fooBuilder.Create();
 
